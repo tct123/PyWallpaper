@@ -1,4 +1,12 @@
 from platform import system
+import os
+
+
+def get_de():
+    desktop_env = os.environ.get("XDG_CURRENT_DESKTOP").lower()
+    if not desktop_env:
+        desktop_env = os.environ.get("DESKTOP_SESSION").lower()
+
 
 if system() == "Windows":
     import ctypes
